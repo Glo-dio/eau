@@ -8,7 +8,7 @@ def combination():
 		for second_nb in range(nb_two, 9):
 			nb_tree = nb_two + 1
 			for thrird_nb in range(nb_tree, 10):
-				print_numbers(nb_one,nb_two,nb_tree)
+				print_numbers(first_nb, second_nb, thrird_nb)
 				nb_tree += 1
 				if nb_one != 7:
 					print(", ",end="")
