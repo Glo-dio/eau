@@ -2,6 +2,7 @@
 
 function combination()
 {
+	let tab_number = []
 	let nb_one = 0;
 	let nb_two = nb_one + 1;
 	let nb_three = nb_two + 1;
@@ -14,19 +15,21 @@ function combination()
 			nb_three = nb_two + 1;
 			while (nb_three < 10)
 			{
-				print_numbers(nb_one, nb_two, nb_three)
-				// console.log(`${nb_one}${nb_two}${nb_three}`);
+				tab_number.push(print_numbers(nb_one, nb_two, nb_three));
 				nb_three++;
 			}
 			nb_two++;
 		}
 		nb_one++;
 	}
+	console.log(tab_number.join(', '));
 }
 
 function print_numbers(one, two, three)
 {
-	console.log(`${one}${two}${three}`);
+	const number = [one,two,three];
+	const new_number = number.join('')
+	return new_number;
 }
 
 
