@@ -12,16 +12,13 @@ function to_upper_one_two(str)
 			&& (str[i].charCodeAt(0) > 96 && str[i].charCodeAt(0) < 123))
 		{
 			letter = str[i].charCodeAt(0) - 32;
-			console.log(str[i]);
 			letter = String.fromCharCode(letter)
-			console.log(letter)
 			new_str.push(letter);
 		}
 		else	
 			new_str.push(str[i]);
 		i++;
 	}
-
 	return new_str;
 }
 function is_arg_valid()
