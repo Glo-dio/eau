@@ -24,7 +24,7 @@ function to_upper_one_two(str)
 function is_arg_valid()
 {
 	if (is_nb_arg_correct === false)
-	return false;
+		return false;
 }
 
 // Partie 1 : Gestion d'erreur

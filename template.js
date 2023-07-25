@@ -4,6 +4,6 @@
 // Partie 3 : Résolution
 // Partie 4 : Affichage
 
-const test = "A";
+const test = " ";
 
 console.log(test.charCodeAt());
