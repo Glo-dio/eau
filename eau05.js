@@ -1,51 +1,63 @@
-/****************************************/
-/*			NON TERMINE					*/
-/****************************************/
-
-
 // fonctions utilisées
 
-function string_in_string()
+function string_in_string(str1, str2)
 {
 	let i = 0;
 	let j = 0;
-	let result = [];
+	let previous_i = 0;
 
-	while (i < string1.length)
+	while (i < str1.length)
 	{
-		while (j < string2.length)
+		if (str1[i] == str2[j])
 		{
-			if (string2[j] == string1[i])
+			previous_i = i;
+			while (j < str2.length)
 			{
-				result.push(string2[j]);
+				console.log(`comparaison ${str1[i]}(${i}) | ${str2[j]}(${j})`);
+				if (str1[i] != str2[j])
+				{
+					console.log(`arret à ${str1[i]}`);
+					break;
+				}
+				if (j == str2.length - 1)
+				{
+					console.log(`final ${str1[i]}(${i}) | ${str2[j]}(${j})`);
+					return true;
+				}
 				i++;
 				j++;
 			}
+			i = previous_i;
+			j = 0;
 		}
 		i++;
 	}
-	// result = String(result);
-
-	result = result.join('');
-
-	// console.log(typeof string1);
-	// console.log(typeof string2);
-	// console.log(typeof result);
-	if (string2 == result)
-	{
-		// console.log("different");
-		console.log("egal");
-	}
-
-	return result;
+	return false;
 }
+
+function is_arg_valid()
+{
+	if (is_nb_arg_correct === false)
+		return false;
+}
+
 // Partie 1 : Gestion d'erreur
+is_nb_arg_correct = process.argv.length > 3;
+
+if (is_arg_valid() === false)
+{
+	console.log("error");
+	process.exit(1);
+}
+
 // Partie 2 : Parsing
 const string1 = process.argv[2];
 const string2 = process.argv[3];
+
 // Partie 3 : Résolution
-const compare_value = string_in_string()
+const compare_value = string_in_string(string1, string2);
+
 // Partie 4 : Affichage
-console.log("\n" + string1);
-console.log(string2);
+console.log(`1 ${string1}`);
+console.log(`2 ${string2}`);
 console.log(compare_value);
