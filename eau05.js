@@ -13,17 +13,10 @@ function string_in_string(str1, str2)
 			previous_i = i;
 			while (j < str2.length)
 			{
-				console.log(`comparaison ${str1[i]}(${i}) | ${str2[j]}(${j})`);
 				if (str1[i] != str2[j])
-				{
-					console.log(`arret à ${str1[i]}`);
 					break;
-				}
 				if (j == str2.length - 1)
-				{
-					console.log(`final ${str1[i]}(${i}) | ${str2[j]}(${j})`);
 					return true;
-				}
 				i++;
 				j++;
 			}
@@ -58,6 +51,4 @@ const string2 = process.argv[3];
 const compare_value = string_in_string(string1, string2);
 
 // Partie 4 : Affichage
-console.log(`1 ${string1}`);
-console.log(`2 ${string2}`);
 console.log(compare_value);
