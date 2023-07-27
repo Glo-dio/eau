@@ -2,7 +2,7 @@
 
 function combination()
 {
-	let tab_number = []
+	let tab_number = [];
 	let nb_one = 0;
 	let nb_two = nb_one + 1;
 	let nb_three = nb_two + 1;

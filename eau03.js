@@ -5,6 +5,7 @@ function error_message()
 	console.log("-1");
 	process.exit(1);
 }
+
 const argument = process.argv;
 
 function fibonacci(index)

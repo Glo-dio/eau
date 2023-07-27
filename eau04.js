@@ -3,17 +3,12 @@
 function nb_premier(nb)
 {
 	let i = 2;
-	if (nb <= 1)
-		return -1;
-	else
-	{
 		while (i < nb)
 		{
 			if (nb % i === 0)
 				return 0;
 			i++;
 		}
-	}
 	return 1;
 }
 
@@ -32,6 +27,8 @@ function is_arg_valid()
 	if (is_nb_arg_correct === false)
 		return false;
 	if (isNaN(process.argv[2]) == true)
+		return false;
+	if (process.argv[2][0] === '-')
 		return false;
 }
 

@@ -21,7 +21,7 @@ function is_arg_valid()
 {
 	if (is_nb_arg_correct === false)
 		return false;
-	if (isNaN(process.argv[2]) == true || isNaN(process.argv[3]))
+	if (isNaN(process.argv[2]) == true || isNaN(process.argv[3]) == true)
 		return false;
 }
 

@@ -13,9 +13,10 @@ function reverse_args()
 const is_number_arg_are_correct = len_args > 1;
 
 // Partie 2 : Parsing
+
 // Partie 3 : Résolution
 if (is_number_arg_are_correct === false)
-	console.log("error.");
+	console.log("error");
 else
 	reverse_args();
 
