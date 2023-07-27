@@ -4,7 +4,7 @@ function args_to_array()
 {
 	let args = [];
 	for (let i = 2; i < process.argv.length; i++)
-		args.push(parseInt(process.argv[i]));
+		args.push((process.argv[i]));
 	return args;
 }
 
@@ -18,6 +18,7 @@ function swap(array, index1, index2)
 function my_select_sort(array)
 {
 	let new_array = array;
+	let k = 0;
 
 	for (let i = 0; i < new_array.length; i++)
 	{
@@ -25,7 +26,15 @@ function my_select_sort(array)
 
 		for (let j = i + 1; j < new_array.length; j++)
 		{
-			if (new_array[j] < new_array[min])
+			k = 0;
+			if (new_array[j].charCodeAt(k) == new_array[min].charCodeAt(k))
+			{
+				while (new_array[j].charCodeAt(k) == new_array[min].charCodeAt(k) && k < new_array[j].length)
+					k++;
+				if (new_array[j].charCodeAt(k) < new_array[min].charCodeAt(k))
+					min = j;
+			}
+			else if (new_array[j].charCodeAt(k) < new_array[min].charCodeAt(k))
 				min = j;
 		}
 		swap(new_array, i, min);
@@ -37,11 +46,6 @@ function is_arg_valid()
 {
 	if (is_nb_arg_correct === false)
 		return false;
-	for (let i = 2; i < process.argv.length ; i++)
-	{
-		if (isNaN(process.argv[i]) == true)
-			return false;
-	}	
 }
 
 // Partie 1 : Gestion d'erreur

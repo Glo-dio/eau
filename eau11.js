@@ -8,29 +8,25 @@ function args_to_array()
 	return args;
 }
 
-function swap(array, index1, index2)
+function absolute_min(array)
 {
-	let tmp = array[index1];
-	array[index1] = array[index2];
-	array[index2] = tmp;
-}
+	let result = 1000 * 1000;
+	let i = 0;
 
-function my_select_sort(array)
-{
-	let new_array = array;
-
-	for (let i = 0; i < new_array.length; i++)
+	while (i < array.length)
 	{
-		min = i;
-
-		for (let j = i + 1; j < new_array.length; j++)
+		j = i + 1;
+		while (j < array.length)
 		{
-			if (new_array[j] < new_array[min])
-				min = j;
+			if (array[j] - array[i] < result && array[i] - array[j] < 0)
+				result = array[j] - array[i];
+			else if (array[i] - array[j] < result && array[i] - array[j] > 0)
+				result = array[i] - array[j];
+			j++;
 		}
-		swap(new_array, i, min);
+		i++;
 	}
-	return new_array;
+	return result;
 }
 
 function is_arg_valid()
@@ -57,7 +53,7 @@ if (is_arg_valid() === false)
 
 // Partie 3 : Résolution
 const tab = args_to_array();
-const answer = my_select_sort(tab).join(' ');
+const answer = absolute_min(tab);
 
 // Partie 4 : Affichage
 console.log(answer);

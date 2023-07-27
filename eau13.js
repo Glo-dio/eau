@@ -4,48 +4,43 @@ function args_to_array()
 {
 	let args = [];
 	for (let i = 2; i < process.argv.length; i++)
-		args.push((process.argv[i]));
+		args.push(parseInt(process.argv[i]));
 	return args;
 }
 
-function swap(array, index1, index2)
+function swap(array, index1)
 {
 	let tmp = array[index1];
-	array[index1] = array[index2];
-	array[index2] = tmp;
+	array[index1] = array[index1 + 1];
+	array[index1 + 1] = tmp;
 }
 
-function my_select_sort(array)
+function my_bubble_sort(array)
 {
 	let new_array = array;
-	let k = 0;
-
-	for (let i = 0; i < new_array.length; i++)
+	let i = 1;
+	// for (let i = 0; i < array.length; i++)
+	while (i < array.length)
 	{
-		min = i;
-
-		for (let j = i + 1; j < new_array.length; j++)
+		if (array[i] > array[i + 1])
 		{
-			k = 0;
-			if (new_array[j].charCodeAt(k) == new_array[min].charCodeAt(k))
-			{
-				while (new_array[j].charCodeAt(k) == new_array[min].charCodeAt(k) && k < new_array[j].length)
-					k++;
-				if (new_array[j].charCodeAt(k) < new_array[min].charCodeAt(k))
-					min = j;
-			}
-			else if (new_array[j].charCodeAt(k) < new_array[min].charCodeAt(k))
-				min = j;
+			swap(new_array, i);
+			i = -1;
 		}
-		swap(new_array, i, min);
+		i++;
 	}
-	return new_array;
+	return (new_array)
 }
 
 function is_arg_valid()
 {
 	if (is_nb_arg_correct === false)
 		return false;
+	for (let i = 2; i < process.argv.length ; i++)
+	{
+		if (isNaN(process.argv[i]) == true)
+			return false;
+	}	
 }
 
 // Partie 1 : Gestion d'erreur
@@ -60,8 +55,8 @@ if (is_arg_valid() === false)
 // Partie 2 : Parsing
 
 // Partie 3 : Résolution
-const tab = args_to_array();
-const answer = my_select_sort(tab).join(' ');
+const arg = args_to_array();
+const answer = my_bubble_sort(arg).join(' ');
 
 // Partie 4 : Affichage
 console.log(answer);
